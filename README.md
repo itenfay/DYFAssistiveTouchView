@@ -68,6 +68,7 @@ _touchView.items = @[itemImage, itemImage1, itemImage2];
 ```
 
  8.响应事件(二选一)
+
   8.1.block实现
 ```ObjC
 [_touchView touchViewItemDidClickedAtIndex:^(DYFAssistiveTouchView *touchView) {
@@ -86,6 +87,9 @@ Set delegagte: _touchView.delegate = self;
 ```
 
  9.QQ群交流
+
   QQ群号：155353383
-  ![QQ群号：155353383](https://github.com/dgynfi/DYFAssistiveTouch/tree/master/images/qq155353383.jpg)
+
+  ![QQ群号：155353383](https://github.com/dgynfi/DYFAssistiveTouch/raw/master/images/qq155353383.jpg)
+
 
