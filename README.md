@@ -1,24 +1,25 @@
-## DYFAssistiveTouchView
+# DYFAssistiveTouchView
+ DYFAssistiveTouchView实现应用内悬浮按钮和辅助工具条，可以动态增加功能项，etc.
+ 
+ https://github.com/dgynfi/DYFAssistiveTouch.git
+ 
+ Author: dyf
+ Date: 2014/10/31
 
-DYFAssistiveTouchView实现应用内悬浮按钮和辅助工具条，可以动态增加功能项，etc.
+# 安装
+ 支持通过 CocoaPods 安装。
+```pod
+ pod 'DYFAssistiveTouchView', '~> 4.2.0'
+```
 
-https://github.com/dgynfi/DYFAssistiveTouch.git
-
-`Author: dyf` <br>
-`Date: 2014/10/31`
-
-### 版本更新
-`Version: 4.1.0`
-
-### Usage
-
-### 1.实例化
+# 使用说明
+ 1.实例化
 ```ObjC
 _touchView = [[DYFAssistiveTouchView alloc] init];
 _touchView.frame = CGRectMake(0, 0, 50, 50);
 ```
 
-### 2.设置属性
+ 2.设置属性
 ```ObjC
 _touchView.imageObject.leftNormalImage = leftNormalImage;
 _touchView.imageObject.rightNormalImage = rightNormalImage;
@@ -36,6 +37,7 @@ _touchView.unitImageObject.rightItemBackgroundImage = rightUint2Image;
 UIImage *userImage = [UIImage imageNamed:@"atv_item_user"];
 UIImage *cafeImage = [UIImage imageNamed:@"atv_item_cafe"];
 UIImage *csImage = [UIImage imageNamed:@"atv_item_cs"];
+
 DYFAssistiveTouchViewItemImage *itemImage = [[DYFAssistiveTouchViewItemImage alloc] init];
 itemImage.image = userImage;
 DYFAssistiveTouchViewItemImage *itemImage1 = [[DYFAssistiveTouchViewItemImage alloc] init];
@@ -45,44 +47,45 @@ itemImage2.image = csImage;
 _touchView.items = @[itemImage, itemImage1, itemImage2];
 ```
 
-### 3.是否显示
+ 3.是否显示
 ```ObjC
 [_touchView isShowing]
 ```
 
-### 4.显示
+ 4.显示
 ```ObjC
 [_touchView show];
 ```
 
-### 5.隐藏
+ 5.隐藏
 ```ObjC
 [_touchView hide];
 ```
 
-### 6.隐藏一半至屏幕
+ 6.隐藏一半至屏幕
 ```ObjC
 [_touchView setShouldShowHalf:YES];
 ```
 
-### 7.设置初始显示位置
+ 7.设置初始显示位置
 ```ObjC
 [_touchView setTouchViewPlace:DYFTouchViewAtMiddleRight];
 ```
-### 8.响应事件(二选一)
-### 8.1.Block实现
+ 8.响应事件(二选一)
+  8.1.block实现
 ```ObjC
 [_touchView touchViewItemDidClickedAtIndex:^(DYFAssistiveTouchView *touchView) {
     NSLog(@"index: %ld", (long)touchView.indexOfItem);
 }];
 ```
-### 8.2.代理实现
+  8.2.代理实现
 ```ObjC
 Protocol: <DYFAssistiveTouchViewDelegate>
 
 Set delegagte: _touchView.delegate = self;
 
 - (void)touchViewItemDidClickedAtIndex:(DYFAssistiveTouchView *)touchView {
-    NSLog(@"index:%ld", (long)touchView.indexOfItem);
+    NSLog(@"index: %zi", touchView.indexOfItem);
 }
 ```
+

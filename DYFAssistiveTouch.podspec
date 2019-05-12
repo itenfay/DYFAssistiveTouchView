@@ -2,14 +2,14 @@
 Pod::Spec.new do |s|
 
   s.name         = "DYFAssistiveTouch"
-  s.version      = "4.1.0"
+  s.version      = "4.2.0"
   s.summary      = "DYFAssistiveTouch实现应用内悬浮按钮和辅助工具条，可以动态增加功能项，etc."
 
-  s.homepage     = "https://github.com/Eastze/DYFAssistiveTouch"
+  s.homepage     = "https://github.com/dgynfi/DYFAssistiveTouch"
 
   s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
-  s.author       = { "dyf" => "1659640627@qq.com" }
+  s.author       = { "dyf" => "vinphy.teng@foxmail.com" }
   # s.social_media_url   = "http://twitter.com/dyf"
 
   s.platform     = :ios
@@ -20,8 +20,8 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/dgynfi/DYFAssistiveTouch.git", :tag => s.version.to_s }
 
-  s.source_files  = "DYFAssistiveTouchView/**/*.{h,m}"
-  s.public_header_files = "DYFAssistiveTouchView/**/*.h"
+  s.source_files  = "Classes/**/*.{h,m}"
+  s.public_header_files = "Classes/**/*.h"
 
 
   # s.resource  = "icon.png"

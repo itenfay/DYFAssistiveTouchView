@@ -64,13 +64,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1490EF2E227F663C001698ED /* DYFAssistiveTouchView */ = {
+		1490EF2E227F663C001698ED /* Classes */ = {
 			isa = PBXGroup;
 			children = (
 				1490EF2F227F663C001698ED /* DYFAssistiveTouchView.h */,
 				1490EF30227F663C001698ED /* DYFAssistiveTouchView.m */,
 			);
-			path = DYFAssistiveTouchView;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		1490EF31227F663C001698ED /* DYFAssistiveTouch */ = {
@@ -120,7 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				1490EF31227F663C001698ED /* DYFAssistiveTouch */,
-				1490EF2E227F663C001698ED /* DYFAssistiveTouchView */,
+				1490EF2E227F663C001698ED /* Classes */,
 				966884481D6C2C94002105A3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -164,7 +164,7 @@
 				TargetAttributes = {
 					966884461D6C2C94002105A3 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = ZJ6634EC36;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -332,11 +332,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = ZJ6634EC36;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/DYFAssistiveTouch/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dyf.assistivetouch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.asd.assistivetouch;
 				PRODUCT_NAME = DYFAssistiveTouch;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -348,11 +349,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = ZJ6634EC36;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/DYFAssistiveTouch/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dyf.assistivetouch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.asd.assistivetouch;
 				PRODUCT_NAME = DYFAssistiveTouch;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -20,7 +20,7 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)setImagesForAT {
+- (void)setImagesForTouchView {
     UIImage *leftHideImage = [UIImage imageNamed:@"atv_hide_left"];
     UIImage *rightHideImage = leftHideImage;
     UIImage *leftNormalImage = [UIImage imageNamed:@"atv_normal_left"];
@@ -35,7 +35,7 @@
     _touchView.imageObject.rightTranslucentImage = rightHideImage;
 }
 
-- (void)setUnitsForAT {
+- (void)setUnitsForTouchView {
     UIImage *leftUint1Image = [UIImage imageNamed:@"atv_unit1_left"];
     UIImage *rightUint1Image = [UIImage imageNamed:@"atv_unit1_right"];
     UIImage *leftUint2Image = [UIImage imageNamed:@"atv_unit2_left"];
@@ -46,7 +46,7 @@
     _touchView.unitImageObject.rightItemBackgroundImage = rightUint2Image;
 }
 
-- (void)setItemsForAT {
+- (void)setItemsForTouchView {
     UIImage *userImage = [UIImage imageNamed:@"atv_item_user"];
     UIImage *cafeImage = [UIImage imageNamed:@"atv_item_cafe"];
     UIImage *csImage = [UIImage imageNamed:@"atv_item_cs"];
@@ -63,22 +63,24 @@
     if (!_touchView) {
         _touchView = [[DYFAssistiveTouchView alloc] init];
         _touchView.frame = CGRectMake(0, 0, 50, 50);
-        [self setImagesForAT];
-        [self setUnitsForAT];
-        [self setItemsForAT];
+        [self setImagesForTouchView];
+        [self setUnitsForTouchView];
+        [self setItemsForTouchView];
         [_touchView setShouldShowHalf:YES];
         [_touchView setTouchViewPlace:DYFTouchViewAtMiddleRight];
         [_touchView touchViewItemDidClickedAtIndex:^(DYFAssistiveTouchView *touchView) {
-            NSLog(@"[DYF] Index Of Item: %ld", (long)touchView.indexOfItem);
+            NSLog(@"[TouchView] Index Of Item: %zi", touchView.indexOfItem);
         }];
     }
 }
 
 - (IBAction)showAndHideAction:(id)sender {
-    if ([_touchView isShowing]) {
-        [_touchView hide];
-    } else {
-        [_touchView show];
+    if (_touchView) {
+        if ([_touchView isShowing]) {
+            [_touchView hide];
+        } else {
+            [_touchView show];
+        }
     }
 }
 
