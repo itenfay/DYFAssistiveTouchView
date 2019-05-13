@@ -16,7 +16,7 @@ _touchView.frame = CGRectMake(0, 0, 50, 50);
 
  2.设置属性
 ```ObjC
-<!----> 设置悬浮按钮各种状态的图像
+// 设置悬浮按钮各种状态的图像
 UIImage *leftHidenImage = [UIImage imageNamed:@"atv_hide_left"];
 UIImage *rightHidenImage = leftHidenImage;
 UIImage *leftNormalImage = [UIImage imageNamed:@"atv_normal_left"];
@@ -30,7 +30,7 @@ _touchView.imageObject.rightHighlightedImage = rightHighlightedImage;
 _touchView.imageObject.leftTranslucentImage = leftHidenImage;
 _touchView.imageObject.rightTranslucentImage = rightHidenImage;
 
-<!----> 设置组件图像
+// 设置组件图像
 UIImage *leftUint1Image = [UIImage imageNamed:@"atv_unit1_left"];
 UIImage *rightUint1Image = [UIImage imageNamed:@"atv_unit1_right"];
 UIImage *leftUint2Image = [UIImage imageNamed:@"atv_unit2_left"];
@@ -40,7 +40,7 @@ _touchView.unitImageObject.rightTouchImage = rightUint1Image;
 _touchView.unitImageObject.leftItemBackgroundImage = leftUint2Image;
 _touchView.unitImageObject.rightItemBackgroundImage = rightUint2Image;
 
-<!----> 设置item图像
+// 设置item图像
 UIImage *userImage = [UIImage imageNamed:@"atv_item_user"];
 UIImage *cafeImage = [UIImage imageNamed:@"atv_item_cafe"];
 UIImage *csImage = [UIImage imageNamed:@"atv_item_cs"];
@@ -79,23 +79,25 @@ _touchView.items = @[itemImage, itemImage1, itemImage2];
 ```
 
  8.响应事件(二选一)
-  8.1.block实现
 ```ObjC
+// 1.block实现
 [_touchView touchViewItemDidClickedAtIndex:^(DYFAssistiveTouchView *touchView) {
-    NSLog(@"index: %zi, (long)touchView.indexOfItem);
+    NSLog(@"Index Of Item: %zi", touchView.indexOfItem);
 }];
 ```
-  8.2.代理实现
 ```ObjC
+// 2.代理实现
 Protocol: <DYFAssistiveTouchViewDelegate>
 
 Set delegagte: _touchView.delegate = self;
 
 - (void)touchViewItemDidClickedAtIndex:(DYFAssistiveTouchView *)touchView {
-    NSLog(@"index: %zi", touchView.indexOfItem);
+    NSLog(@"Index Of Item: %zi", touchView.indexOfItem);
 }
 ```
 
  9.QQ群交流
+
   QQ群号：155353383
+
   ![QQ群号：155353383](https://github.com/dgynfi/DYFAssistiveTouch/raw/master/images/qq155353383.jpg)
