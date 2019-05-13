@@ -82,7 +82,7 @@ _touchView.items = @[itemImage, itemImage1, itemImage2];
 ```ObjC
 // 1.block实现
 [_touchView touchViewItemDidClickedAtIndex:^(DYFAssistiveTouchView *touchView) {
-    NSLog(@"Index Of Item: %zi", touchView.indexOfItem);
+    NSLog(@"Index Of item: %zi", touchView.indexOfItem);
 }];
 ```
 ```ObjC
@@ -92,7 +92,7 @@ Protocol: <DYFAssistiveTouchViewDelegate>
 Set delegagte: _touchView.delegate = self;
 
 - (void)touchViewItemDidClickedAtIndex:(DYFAssistiveTouchView *)touchView {
-    NSLog(@"Index Of Item: %zi", touchView.indexOfItem);
+    NSLog(@"Index of item: %zi", touchView.indexOfItem);
 }
 ```
 

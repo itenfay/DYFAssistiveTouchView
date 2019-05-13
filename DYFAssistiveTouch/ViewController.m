@@ -69,7 +69,7 @@
         [_touchView setShouldShowHalf:YES];
         [_touchView setTouchViewPlace:DYFTouchViewAtMiddleRight];
         [_touchView touchViewItemDidClickedAtIndex:^(DYFAssistiveTouchView *touchView) {
-            NSLog(@"Index Of Item: %zi", touchView.indexOfItem);
+            NSLog(@"Index of item: %zi", touchView.indexOfItem);
         }];
     }
 }
