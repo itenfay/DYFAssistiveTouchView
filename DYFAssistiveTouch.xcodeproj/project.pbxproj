@@ -119,8 +119,8 @@
 		9668843E1D6C2C94002105A3 = {
 			isa = PBXGroup;
 			children = (
-				1490EF31227F663C001698ED /* DYFAssistiveTouch */,
 				1490EF2E227F663C001698ED /* Classes */,
+				1490EF31227F663C001698ED /* DYFAssistiveTouch */,
 				966884481D6C2C94002105A3 /* Products */,
 			);
 			sourceTree = "<group>";

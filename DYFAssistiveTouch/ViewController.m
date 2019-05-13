@@ -21,8 +21,8 @@
 }
 
 - (void)setImagesForTouchView {
-    UIImage *leftHideImage = [UIImage imageNamed:@"atv_hide_left"];
-    UIImage *rightHideImage = leftHideImage;
+    UIImage *leftHidenImage = [UIImage imageNamed:@"atv_hide_left"];
+    UIImage *rightHidenImage = leftHidenImage;
     UIImage *leftNormalImage = [UIImage imageNamed:@"atv_normal_left"];
     UIImage *rightNormalImage = leftNormalImage;
     UIImage *leftHighlightedImage = [UIImage imageNamed:@"atv_normal_left"];
@@ -31,8 +31,8 @@
     _touchView.imageObject.rightNormalImage = rightNormalImage;
     _touchView.imageObject.leftHighlightedImage = leftHighlightedImage;
     _touchView.imageObject.rightHighlightedImage = rightHighlightedImage;
-    _touchView.imageObject.leftTranslucentImage = leftHideImage;
-    _touchView.imageObject.rightTranslucentImage = rightHideImage;
+    _touchView.imageObject.leftTranslucentImage = leftHidenImage;
+    _touchView.imageObject.rightTranslucentImage = rightHidenImage;
 }
 
 - (void)setUnitsForTouchView {
@@ -69,7 +69,7 @@
         [_touchView setShouldShowHalf:YES];
         [_touchView setTouchViewPlace:DYFTouchViewAtMiddleRight];
         [_touchView touchViewItemDidClickedAtIndex:^(DYFAssistiveTouchView *touchView) {
-            NSLog(@"[TouchView] Index Of Item: %zi", touchView.indexOfItem);
+            NSLog(@"Index Of Item: %zi", touchView.indexOfItem);
         }];
     }
 }

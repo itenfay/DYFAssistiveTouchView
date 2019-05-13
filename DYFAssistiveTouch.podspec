@@ -3,11 +3,11 @@ Pod::Spec.new do |s|
 
   s.name         = "DYFAssistiveTouch"
   s.version      = "4.2.0"
-  s.summary      = "DYFAssistiveTouch实现应用内悬浮按钮和辅助工具条，可以动态增加功能项，etc."
+  s.summary      = "实现应用内悬浮按钮和辅助工具条，可以动态增加功能项."
 
   s.homepage     = "https://github.com/dgynfi/DYFAssistiveTouch"
 
-  s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+  s.license      = { :type => "MIT", :file => "LICENSE" }
 
   s.author       = { "dyf" => "vinphy.teng@foxmail.com" }
   # s.social_media_url   = "http://twitter.com/dyf"
