@@ -2,8 +2,8 @@
 Pod::Spec.new do |s|
 
   s.name         = "DYFAssistiveTouch"
-  s.version      = "4.2.0"
-  s.summary      = "实现应用内悬浮按钮和辅助工具条，可以动态增加功能项."
+  s.version      = "4.2.1"
+  s.summary      = "实现应用内悬浮按钮和辅助工具条，可以动态增加功能项。"
 
   s.homepage     = "https://github.com/dgynfi/DYFAssistiveTouch"
 

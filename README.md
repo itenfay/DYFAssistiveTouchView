@@ -4,7 +4,7 @@
 ## 安装
  支持通过 CocoaPods 安装。
 ```pod
- pod 'DYFAssistiveTouch', '~> 4.2.0'
+ pod 'DYFAssistiveTouch', '~> 4.2.1'
 ```
 
 ## 使用说明
