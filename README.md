@@ -78,7 +78,7 @@ _touchView.items = @[itemImage, itemImage1, itemImage2];
 [_touchView setTouchViewPlace:DYFTouchViewAtMiddleRight];
 ```
 
- 8.响应事件(二选一)
+ 8.响应事件(二选一) <br>
  8.1. block实现
 ```ObjC
 [_touchView touchViewItemDidClickedAtIndex:^(DYFAssistiveTouchView *touchView) {
