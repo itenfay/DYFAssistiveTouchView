@@ -79,14 +79,14 @@ _touchView.items = @[itemImage, itemImage1, itemImage2];
 ```
 
  8.响应事件(二选一)
+ 8.1. block实现
 ```ObjC
-// 1.block实现
 [_touchView touchViewItemDidClickedAtIndex:^(DYFAssistiveTouchView *touchView) {
     NSLog(@"Index of item: %zi", touchView.indexOfItem);
 }];
 ```
+ 8.2. 代理实现
 ```ObjC
-// 2.代理实现
 Protocol: <DYFAssistiveTouchViewDelegate>
 
 Set delegagte: _touchView.delegate = self;
@@ -96,8 +96,6 @@ Set delegagte: _touchView.delegate = self;
 }
 ```
 
- 9.QQ群交流
-
-  QQ群号：155353383
-
-  ![QQ群号：155353383](https://github.com/dgynfi/DYFAssistiveTouch/raw/master/images/qq155353383.jpg)
+ 9.QQ群交流 <br>
+ QQ群：155353383 <br>
+ ![qq群：155353383](https://github.com/dgynfi/DYFAssistiveTouch/raw/master/images/qq155353383.jpg)
