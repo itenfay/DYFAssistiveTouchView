@@ -1,13 +1,21 @@
+## 技术交流群
+
+欢迎加入技术交流群(群号:155353383) ，一起探讨技术问题。<br>
+![群号:155353383](https://github.com/dgynfi/DYFAssistiveTouch/raw/master/images/qq155353383.jpg)
+
 ## DYFAssistiveTouch
- 实现应用内悬浮按钮和辅助工具条，可以动态增加功能项。
+
+ 实现应用内悬浮按钮和辅助工具条，可以增加/修改功能项，通过事件索引，实现各种场景页面的跳转。
 
 ## 安装
+
  支持通过 CocoaPods 安装。
 ```pod
  pod 'DYFAssistiveTouch', '~> 4.2.1'
 ```
 
 ## 使用说明
+
  1.实例化
 ```ObjC
 _touchView = [[DYFAssistiveTouchView alloc] init];
@@ -95,7 +103,3 @@ Set delegagte: _touchView.delegate = self;
     NSLog(@"Index of item: %zi", touchView.indexOfItem);
 }
 ```
-
- 9.QQ群交流 <br>
- QQ群：155353383 <br>
- ![qq群：155353383](https://github.com/dgynfi/DYFAssistiveTouch/raw/master/images/qq155353383.jpg)
