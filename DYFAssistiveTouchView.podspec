@@ -1,11 +1,11 @@
 
 Pod::Spec.new do |s|
 
-  s.name         = "DYFAssistiveTouch"
-  s.version      = "4.2.1"
-  s.summary      = "实现应用内悬浮按钮和辅助工具条，可以动态增加功能项。"
+  s.name         = "DYFAssistiveTouchView"
+  s.version      = "4.2.2"
+  s.summary      = "实现应用内悬浮按钮和辅助工具条，可以增加/修改功能项，通过事件索引，实现各种场景页面的跳转。"
 
-  s.homepage     = "https://github.com/dgynfi/DYFAssistiveTouch"
+  s.homepage     = "https://github.com/dgynfi/DYFAssistiveTouchView"
 
   s.license      = { :type => "MIT", :file => "LICENSE" }
 
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   # s.watchos.deployment_target = "2.0"
   # s.tvos.deployment_target = "9.0"
 
-  s.source       = { :git => "https://github.com/dgynfi/DYFAssistiveTouch.git", :tag => s.version.to_s }
+  s.source       = { :git => "https://github.com/dgynfi/DYFAssistiveTouchView.git", :tag => s.version.to_s }
 
   s.source_files  = "Classes/**/*.{h,m}"
   s.public_header_files = "Classes/**/*.h"

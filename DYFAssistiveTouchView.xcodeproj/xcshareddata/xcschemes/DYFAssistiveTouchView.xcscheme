@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "966884461D6C2C94002105A3"
-               BuildableName = "DYFAssistiveTouch.app"
-               BlueprintName = "DYFAssistiveTouch"
-               ReferencedContainer = "container:DYFAssistiveTouch.xcodeproj">
+               BuildableName = "DYFAssistiveTouchView.app"
+               BlueprintName = "DYFAssistiveTouchView"
+               ReferencedContainer = "container:DYFAssistiveTouchView.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "966884461D6C2C94002105A3"
-            BuildableName = "DYFAssistiveTouch.app"
-            BlueprintName = "DYFAssistiveTouch"
-            ReferencedContainer = "container:DYFAssistiveTouch.xcodeproj">
+            BuildableName = "DYFAssistiveTouchView.app"
+            BlueprintName = "DYFAssistiveTouchView"
+            ReferencedContainer = "container:DYFAssistiveTouchView.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "966884461D6C2C94002105A3"
-            BuildableName = "DYFAssistiveTouch.app"
-            BlueprintName = "DYFAssistiveTouch"
-            ReferencedContainer = "container:DYFAssistiveTouch.xcodeproj">
+            BuildableName = "DYFAssistiveTouchView.app"
+            BlueprintName = "DYFAssistiveTouchView"
+            ReferencedContainer = "container:DYFAssistiveTouchView.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "966884461D6C2C94002105A3"
-            BuildableName = "DYFAssistiveTouch.app"
-            BlueprintName = "DYFAssistiveTouch"
-            ReferencedContainer = "container:DYFAssistiveTouch.xcodeproj">
+            BuildableName = "DYFAssistiveTouchView.app"
+            BlueprintName = "DYFAssistiveTouchView"
+            ReferencedContainer = "container:DYFAssistiveTouchView.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

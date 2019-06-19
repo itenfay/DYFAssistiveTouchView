@@ -26,12 +26,16 @@
 #import <QuartzCore/QuartzCore.h>
 #import "DYFAssistiveTouchView.h"
 
-#define ScreenWidth     [UIScreen mainScreen].bounds.size.width
-#define ScreenHeight    [UIScreen mainScreen].bounds.size.height
-#define IsPortrait(ori) UIInterfaceOrientationIsPortrait(ori)
-#define Application	    [UIApplication sharedApplication]
+#pragma mark - macros
 
-@interface UIView (DYFLayoutCategory)
+#define ScreenW          [UIScreen mainScreen].bounds.size.width
+#define ScreenH          [UIScreen mainScreen].bounds.size.height
+#define IsPortrait(ori)  UIInterfaceOrientationIsPortrait(ori)
+#define SharedApp	     [UIApplication sharedApplication]
+
+#pragma mark - category
+
+@interface UIView (ATVEasyFrame)
 @property (nonatomic, assign) CGFloat x;
 @property (nonatomic, assign) CGFloat y;
 @property (nonatomic, assign) CGFloat width;
@@ -41,7 +45,7 @@
 @property (nonatomic, assign) CGFloat centerY;
 @end
 
-@implementation UIView (DYFLayoutCategory)
+@implementation UIView (ATVEasyFrame)
 @dynamic x;
 @dynamic y;
 @dynamic width;
@@ -121,13 +125,16 @@
 }
 @end
 
-@implementation DYFAssistiveTouchViewImage
+@implementation DYFAssistiveTouchObject
+
 @end
 
-@implementation DYFAssistiveTouchViewUnitImage
+@implementation DYFAssistiveTouchUnit
+
 @end
 
-@implementation DYFAssistiveTouchViewItemImage
+@implementation DYFAssistiveTouchItem
+
 @end
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 100000
@@ -169,8 +176,8 @@
     
     [self layoutAfterDelay];
     
-    _imageObject = [[DYFAssistiveTouchViewImage alloc] init];
-    _unitImageObject = [[DYFAssistiveTouchViewUnitImage alloc] init];
+    _touchObject = [[DYFAssistiveTouchObject alloc] init];
+    _unitObject  = [[DYFAssistiveTouchUnit alloc] init];
 }
 
 - (void)addGesture {
@@ -180,19 +187,15 @@
 }
 
 - (void)unregisterOrientationObserver {
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIApplicationDidChangeStatusBarOrientationNotification
-                                                  object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
 }
 
 - (void)registerOrientationObserver {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusBarOrientationDidChange:)
-                                                 name:UIApplicationDidChangeStatusBarOrientationNotification
-                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusBarOrientationDidChange:) name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
 }
 
 - (UIInterfaceOrientation)uiOrientation {
-    return Application.statusBarOrientation;
+    return SharedApp.statusBarOrientation;
 }
 
 - (BOOL)iOS8OrNewer {
@@ -200,7 +203,7 @@
 }
 
 - (UIView *)mainView {
-    UIViewController *vc = Application.windows[0].rootViewController;
+    UIViewController *vc = SharedApp.windows[0].rootViewController;
     while (vc.presentedViewController) {
         vc = vc.presentedViewController;
     }
@@ -243,6 +246,7 @@
 
 - (void)show {
     [self setAlpha:0.0];
+    
     [UIView animateWithDuration:0.5 animations:^{
         [self setAlpha:1.0];
     } completion:^(BOOL finished) {
@@ -251,6 +255,7 @@
         [self setTouchViewNormalImage];
         [self makeTouchViewTranslucentAfterDelay];
     }];
+    
     [self makeHidden:NO];
 }
 
@@ -265,6 +270,7 @@
         }
         [self removeToolBar];
     }];
+    
     [self cancelMakeTouchViewTranslucentRequest];
 }
 
@@ -273,19 +279,24 @@
         case DYFTouchViewAtTopLeft:
             [self setTouchViewLocationWithPlace:DYFTouchViewAtTopLeft];
             break;
+            
         case DYFTouchViewAtTopRight:
             [self setTouchViewLocationWithPlace:DYFTouchViewAtTopRight];
             break;
+            
         default:
         case DYFTouchViewAtMiddleLeft:
             [self setTouchViewLocationWithPlace:DYFTouchViewAtMiddleLeft];
             break;
+            
         case DYFTouchViewAtMiddleRight:
             [self setTouchViewLocationWithPlace:DYFTouchViewAtMiddleRight];
             break;
+            
         case DYFTouchViewAtBottomLeft:
             [self setTouchViewLocationWithPlace:DYFTouchViewAtBottomLeft];
             break;
+            
         case DYFTouchViewAtBottomRight:
             [self setTouchViewLocationWithPlace:DYFTouchViewAtBottomRight];
             break;
@@ -295,13 +306,15 @@
 - (void)setTouchViewLocationWithPlace:(DYFTouchViewPlace)place {
     CGFloat width = 0;
     CGFloat height = 0;
+    
     if (IsPortrait([self uiOrientation]) || [self iOS8OrNewer]) {
-        width = ScreenWidth;
-        height = ScreenHeight;
+        width = ScreenW;
+        height = ScreenH;
     } else {
-        width = ScreenHeight;
-        height = ScreenWidth;
+        width = ScreenH;
+        height = ScreenW;
     }
+    
     if (place == DYFTouchViewAtTopLeft) {
         self.x = 0;
         self.y = 0;
@@ -333,32 +346,32 @@
 
 - (void)setTouchViewNormalImage {
     if ([self touchViewAtRight]) {
-        _imageView.image = _imageObject.rightNormalImage;
+        _imageView.image = _touchObject.rightNormalImage;
     } else {
-        _imageView.image = _imageObject.leftNormalImage;
+        _imageView.image = _touchObject.leftNormalImage;
     }
 }
 
 - (void)setTouchViewHighlightedImage {
     if ([self touchViewAtRight]) {
-        if (_imageObject.rightHighlightedImage) {
-            _imageView.highlightedImage = _imageObject.rightHighlightedImage;
+        if (_touchObject.rightHighlightedImage) {
+            _imageView.highlightedImage = _touchObject.rightHighlightedImage;
         }
     } else {
-        if (_imageObject.leftHighlightedImage) {
-            _imageView.highlightedImage = _imageObject.leftHighlightedImage;
+        if (_touchObject.leftHighlightedImage) {
+            _imageView.highlightedImage = _touchObject.leftHighlightedImage;
         }
     }
 }
 
 - (void)setTouchViewTranslucentImage {
     if ([self touchViewAtRight]) {
-        if (_imageObject.rightTranslucentImage) {
-            _imageView.image = _imageObject.rightTranslucentImage;
+        if (_touchObject.rightTranslucentImage) {
+            _imageView.image = _touchObject.rightTranslucentImage;
         }
     } else {
-        if (_imageObject.leftTranslucentImage) {
-            _imageView.image = _imageObject.leftTranslucentImage;
+        if (_touchObject.leftTranslucentImage) {
+            _imageView.image = _touchObject.leftTranslucentImage;
         }
     }
 }
@@ -373,15 +386,15 @@
 
 - (void)handleUIResponds {
     if (self.isUnfolded) {
-        [self foldedToolBar];
+        [self foldToolBar];
     } else {
-        [self unfoldedToolBar];
+        [self unfoldToolBar];
     }
 }
 
 - (void)makeTouchViewTranslucentAfterDelay {
     if (!self.isUnfolded && !self.isMoving) {
-        [self performSelector:@selector(makeTouchViewTranslucent) withObject:nil afterDelay:6.0];
+        [self performSelector:@selector(makeTouchViewTranslucent) withObject:nil afterDelay:8.0];
     }
 }
 
@@ -399,7 +412,7 @@
     }
 }
 
-- (void)unfoldedToolBar {
+- (void)unfoldToolBar {
     if (![self isMoving]) {
         [self makeHidden:YES];
         [self setUnfolded:YES];
@@ -408,7 +421,7 @@
     }
 }
 
-- (void)foldedToolBar {
+- (void)foldToolBar {
     [self setUnfolded:NO];
     [self makeToolBarHidden:YES];
     [self hideToolBarWithAnimation];
@@ -416,11 +429,14 @@
 
 - (void)setupToolBar {
     UIView *view = [self mainView];
+    
     _toolBar = [[UIView alloc] init];
     _toolBar.backgroundColor = [UIColor clearColor];
     _toolBar.userInteractionEnabled = YES;
     _toolBar.height = self.height;
+    
     [view addSubview:_toolBar];
+    
     [self addToolBarUnits];
 }
 
@@ -430,19 +446,19 @@
 
 - (UIImage *)tbTouchImage {
     if ([self touchViewAtRight]) {
-        return _unitImageObject.rightTouchImage;
+        return _unitObject.rightTouchImage;
     }
-    return _unitImageObject.leftTouchImage;
+    return _unitObject.leftTouchImage;
 }
 
 - (UIImage *)tbItemBackgroundImage {
     if ([self touchViewAtRight]) {
-        UIImage *rightItemBackgroundImage = _unitImageObject.rightItemBackgroundImage;
+        UIImage *rightItemBackgroundImage = _unitObject.rightItemBackgroundImage;
         UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0, 30, 0, 10);
         rightItemBackgroundImage = [rightItemBackgroundImage resizableImageWithCapInsets:edgeInsets resizingMode:UIImageResizingModeStretch];
         return rightItemBackgroundImage;
     } else {
-        UIImage *leftItemBackgroundImage = _unitImageObject.leftItemBackgroundImage;
+        UIImage *leftItemBackgroundImage = _unitObject.leftItemBackgroundImage;
         UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0, 10, 0, 30);
         leftItemBackgroundImage = [leftItemBackgroundImage resizableImageWithCapInsets:edgeInsets resizingMode:UIImageResizingModeStretch];
         return leftItemBackgroundImage;
@@ -453,8 +469,8 @@
     CGFloat length = (self.items.count + 1)*self.distanceOfItem + 20;
     
     for (int idx = 0; idx < self.items.count; idx++) {
-        DYFAssistiveTouchViewItemImage *itemImageObject = [self.items objectAtIndex:idx];
-        length += itemImageObject.image.size.width;
+        DYFAssistiveTouchItem *item = [self.items objectAtIndex:idx];
+        length += item.image.size.width;
     }
     
     UIImage *touchImage = [self tbTouchImage];
@@ -497,10 +513,11 @@
 - (void)addToolBarItems:(UIImageView *)itemBackgroundImageView {
     CGFloat width = itemBackgroundImageView.width;
     CGFloat height = itemBackgroundImageView.height;
+    
     for (int i = 0; i < self.items.count; i++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        DYFAssistiveTouchViewItemImage *itemImageObject = [self.items objectAtIndex:i];
-        CGSize itemSize = itemImageObject.image.size;
+        DYFAssistiveTouchItem *item = [self.items objectAtIndex:i];
+        CGSize itemSize = item.image.size;
         if ([self touchViewAtRight]) {
             button.x = width - (i + 1)*(itemSize.width + self.distanceOfItem);
         } else {
@@ -509,16 +526,17 @@
         button.y = (height- itemSize.height)/2;
         button.width = itemSize.width;
         button.height = itemSize.height;
-        if (itemImageObject.image) {
-            [button setImage:itemImageObject.image forState:UIControlStateNormal];
+        if (item.image) {
+            [button setImage:item.image forState:UIControlStateNormal];
         }
-        if (itemImageObject.highlightedImage) {
-            [button setImage:itemImageObject.highlightedImage forState:UIControlStateHighlighted];
+        if (item.highlightedImage) {
+            [button setImage:item.highlightedImage forState:UIControlStateHighlighted];
         }
         [button setTag:i + 100];
         [button addTarget:self action:@selector(toolBarItemAction:) forControlEvents:UIControlEventTouchUpInside];
         [itemBackgroundImageView addSubview:button];
     }
+    
     [self updateToolBarOrigin];
 }
 
@@ -559,13 +577,13 @@
 - (BOOL)touchViewAtRight {
     BOOL isAtRight = NO;
     if (IsPortrait([self uiOrientation]) || [self iOS8OrNewer]) {
-        if (self.centerX < ScreenWidth/2) {
+        if (self.centerX < ScreenW/2) {
             isAtRight = NO;
         } else {
             isAtRight = YES;
         }
     } else {
-        if (self.centerX < ScreenHeight/2) {
+        if (self.centerX < ScreenH/2) {
             isAtRight = NO;
         } else {
             isAtRight = YES;
@@ -635,11 +653,11 @@
     CGFloat dw = 0;
     CGFloat dh = 0;
     if (IsPortrait([self uiOrientation]) || [self iOS8OrNewer]) {
-        dw = ScreenWidth;
-        dh = ScreenHeight;
+        dw = ScreenW;
+        dh = ScreenH;
     } else {
-        dw = ScreenHeight;
-        dh = ScreenWidth;
+        dw = ScreenH;
+        dh = ScreenW;
     }
     
     CGFloat left = self.width/2;
@@ -720,20 +738,22 @@
         animation.type = type;
         animation.subtype = subtype;
         animation.delegate = self;
-        [self.toolBar.layer addAnimation:animation forKey:@"Atvanimation"];
+        [self.toolBar.layer addAnimation:animation forKey:@"atvanimation"];
     }
 }
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
     if (flag) {
         if (self.toolBar) {
-            [self.toolBar.layer removeAnimationForKey:@"Atvanimation"];
+            [self.toolBar.layer removeAnimationForKey:@"atvanimation"];
         }
+        
         if (![self isUnfolded]) {
             [self removeToolBar];
             [self setTouchViewNormalState];
             [self setTouchViewNormalImage];
             [self makeHidden:NO];
+            
             [self setAlpha:0.0];
             [UIView animateWithDuration:0.5 delay:0.3 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                 [self setAlpha:1.0];

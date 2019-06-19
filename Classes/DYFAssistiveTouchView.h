@@ -56,7 +56,7 @@ typedef NS_ENUM(NSInteger, DYFTouchViewPlace) {
  */
 typedef void (^DYFTouchViewItemDidClickedBlock)(DYFAssistiveTouchView *_Nullable touchView);
 
-@interface DYFAssistiveTouchViewImage : NSObject
+@interface DYFAssistiveTouchObject : NSObject
 // TouchView normal image at left.
 @property (nonatomic, strong, nullable) UIImage *leftNormalImage;
 // TouchView normal image at right.
@@ -71,7 +71,7 @@ typedef void (^DYFTouchViewItemDidClickedBlock)(DYFAssistiveTouchView *_Nullable
 @property (nonatomic, strong, nullable) UIImage *rightTranslucentImage;
 @end
 
-@interface DYFAssistiveTouchViewUnitImage : NSObject
+@interface DYFAssistiveTouchUnit : NSObject
 // Left touch image.
 @property (nonatomic, strong, nullable) UIImage *leftTouchImage;
 // Right touch image.
@@ -82,7 +82,7 @@ typedef void (^DYFTouchViewItemDidClickedBlock)(DYFAssistiveTouchView *_Nullable
 @property (nonatomic, strong, nullable) UIImage *rightItemBackgroundImage;
 @end
 
-@interface DYFAssistiveTouchViewItemImage : NSObject
+@interface DYFAssistiveTouchItem: NSObject
 // Normal image.
 @property (nonatomic, strong, nullable) UIImage *image;
 // Highlighted image.
@@ -92,24 +92,27 @@ typedef void (^DYFTouchViewItemDidClickedBlock)(DYFAssistiveTouchView *_Nullable
 @interface DYFAssistiveTouchView : UIView
 // The delegate for touchView item which did clicked.
 @property (nonatomic, weak, nullable) id<DYFAssistiveTouchViewDelegate> delegate;
+
 // TouchView is displaying or not displaying.
 @property (nonatomic, assign, readonly, getter=isShowing) BOOL showing;
 // TouchView is moving or not moving.
 @property (nonatomic, assign, readonly, getter=isMoving) BOOL moving;
 // TouchView is unfolded or not folded.
 @property (nonatomic, assign, readonly, getter=isUnfolded) BOOL unfolded;
+
 // TouchView images.
-@property (nonatomic, strong, nullable) DYFAssistiveTouchViewImage *imageObject;
+@property (nonatomic, strong, nullable) DYFAssistiveTouchObject *touchObject;
 // TouchView unit.
-@property (nonatomic, strong, nullable) DYFAssistiveTouchViewUnitImage *unitImageObject;
+@property (nonatomic, strong, nullable) DYFAssistiveTouchUnit *unitObject;
 // TouchView items.
-@property (nonatomic, strong, nullable) NSArray<DYFAssistiveTouchViewItemImage *> *items;
-// TouchView item index.
-@property (nonatomic, assign, readonly) NSInteger indexOfItem;
+@property (nonatomic, strong, nullable) NSArray<DYFAssistiveTouchItem *> *items;
+
 // TouchView item distance, default is 10.0.
 @property (nonatomic, assign) CGFloat distanceOfItem;
 // TouchView should show half or not.
 @property (nonatomic, assign) BOOL shouldShowHalf;
+// TouchView item index.
+@property (nonatomic, assign, readonly) NSInteger indexOfItem;
 
 /**
  *  Set touchView begin location.

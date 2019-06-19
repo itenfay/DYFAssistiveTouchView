@@ -1,9 +1,4 @@
-## 技术交流群
-
-欢迎加入技术交流群(群号:155353383) ，一起探讨技术问题。<br>
-![群号:155353383](https://github.com/dgynfi/DYFAssistiveTouch/raw/master/images/qq155353383.jpg)
-
-## DYFAssistiveTouch
+## DYFAssistiveTouchView
 
  实现应用内悬浮按钮和辅助工具条，可以增加/修改功能项，通过事件索引，实现各种场景页面的跳转。
 
@@ -11,82 +6,96 @@
 
  支持通过 CocoaPods 安装。
 ```pod
- pod 'DYFAssistiveTouch', '~> 4.2.1'
+ pod 'DYFAssistiveTouchView', '~> 4.2.2'
 ```
+
+## 技术交流群(群号:155353383) 
+
+欢迎加入技术交流群，一起探讨技术问题。<br>
+![群号:155353383](https://github.com/dgynfi/DYFAssistiveTouchView/raw/master/images/qq155353383.jpg)
 
 ## 使用说明
 
- 1.实例化
+ 1. 实例化
 ```ObjC
-_touchView = [[DYFAssistiveTouchView alloc] init];
-_touchView.frame = CGRectMake(0, 0, 50, 50);
+- (DYFAssistiveTouchView *)touchView {
+    if (!_touchView) {
+        _touchView = [[DYFAssistiveTouchView alloc] init];
+        _touchView.frame = CGRectMake(0, 0, 50, 50);
+    }
+    return _touchView;
+}
 ```
 
- 2.设置属性
+ 2. 设置属性
 ```ObjC
-// 设置悬浮按钮各种状态的图像
-UIImage *leftHidenImage = [UIImage imageNamed:@"atv_hide_left"];
-UIImage *rightHidenImage = leftHidenImage;
-UIImage *leftNormalImage = [UIImage imageNamed:@"atv_normal_left"];
-UIImage *rightNormalImage = leftNormalImage;
-UIImage *leftHighlightedImage = [UIImage imageNamed:@"atv_normal_left"];
+// 设置按钮的各种状态的图像
+UIImage        *leftHidenImage = [UIImage imageNamed:@"atv_hide_left"];
+UIImage       *rightHidenImage = leftHidenImage;
+UIImage       *leftNormalImage = [UIImage imageNamed:@"atv_normal_left"];
+UIImage      *rightNormalImage = leftNormalImage;
+UIImage  *leftHighlightedImage = [UIImage imageNamed:@"atv_normal_left"];
 UIImage *rightHighlightedImage = leftHighlightedImage;
-_touchView.imageObject.leftNormalImage = leftNormalImage;
-_touchView.imageObject.rightNormalImage = rightNormalImage;
-_touchView.imageObject.leftHighlightedImage = leftHighlightedImage;
-_touchView.imageObject.rightHighlightedImage = rightHighlightedImage;
-_touchView.imageObject.leftTranslucentImage = leftHidenImage;
-_touchView.imageObject.rightTranslucentImage = rightHidenImage;
 
-// 设置组件图像
-UIImage *leftUint1Image = [UIImage imageNamed:@"atv_unit1_left"];
+self.touchView.touchObject.leftNormalImage       = leftNormalImage;
+self.touchView.touchObject.rightNormalImage      = rightNormalImage;
+self.touchView.touchObject.leftHighlightedImage  = leftHighlightedImage;
+self.touchView.touchObject.rightHighlightedImage = rightHighlightedImage;
+self.touchView.touchObject.leftTranslucentImage  = leftHidenImage;
+self.touchView.touchObject.rightTranslucentImage = rightHidenImage;
+
+// 设置组件
+UIImage  *leftUint1Image = [UIImage imageNamed:@"atv_unit1_left"];
 UIImage *rightUint1Image = [UIImage imageNamed:@"atv_unit1_right"];
-UIImage *leftUint2Image = [UIImage imageNamed:@"atv_unit2_left"];
+UIImage  *leftUint2Image = [UIImage imageNamed:@"atv_unit2_left"];
 UIImage *rightUint2Image = [UIImage imageNamed:@"atv_unit2_right"];
-_touchView.unitImageObject.leftTouchImage = leftUint1Image;
-_touchView.unitImageObject.rightTouchImage = rightUint1Image;
-_touchView.unitImageObject.leftItemBackgroundImage = leftUint2Image;
-_touchView.unitImageObject.rightItemBackgroundImage = rightUint2Image;
 
-// 设置item图像
+self.touchView.unitObject.leftTouchImage           = leftUint1Image;
+self.touchView.unitObject.rightTouchImage          = rightUint1Image;
+self.touchView.unitObject.leftItemBackgroundImage  = leftUint2Image;
+self.touchView.unitObject.rightItemBackgroundImage = rightUint2Image;
+
+// 设置item
 UIImage *userImage = [UIImage imageNamed:@"atv_item_user"];
 UIImage *cafeImage = [UIImage imageNamed:@"atv_item_cafe"];
-UIImage *csImage = [UIImage imageNamed:@"atv_item_cs"];
-DYFAssistiveTouchViewItemImage *itemImage = [[DYFAssistiveTouchViewItemImage alloc] init];
-itemImage.image = userImage;
-DYFAssistiveTouchViewItemImage *itemImage1 = [[DYFAssistiveTouchViewItemImage alloc] init];
-itemImage1.image = cafeImage;
-DYFAssistiveTouchViewItemImage *itemImage2 = [[DYFAssistiveTouchViewItemImage alloc] init];
-itemImage2.image = csImage;
-_touchView.items = @[itemImage, itemImage1, itemImage2];
+UIImage   *csImage = [UIImage imageNamed:@"atv_item_cs"];
+
+DYFAssistiveTouchItem *item  = [[DYFAssistiveTouchItem alloc] init];
+item.image  = userImage;
+DYFAssistiveTouchItem *item1 = [[DYFAssistiveTouchItem alloc] init];
+item1.image = cafeImage;
+DYFAssistiveTouchItem *item2 = [[DYFAssistiveTouchItem alloc] init];
+item2.image = csImage;
+
+self.touchView.items = @[item, item1, item2];
 ```
 
- 3.是否显示
+ 3. 是否显示
 ```ObjC
 [_touchView isShowing]
 ```
 
- 4.显示
+ 4. 显示
 ```ObjC
 [_touchView show];
 ```
 
- 5.隐藏
+ 5. 隐藏
 ```ObjC
 [_touchView hide];
 ```
 
- 6.隐藏一半至屏幕
+ 6. 隐藏一半至屏幕
 ```ObjC
 [_touchView setShouldShowHalf:YES];
 ```
 
- 7.设置初始显示位置
+ 7. 设置初始显示位置
 ```ObjC
 [_touchView setTouchViewPlace:DYFTouchViewAtMiddleRight];
 ```
 
- 8.响应事件(二选一) <br>
+ 8. 响应事件(二选一) <br>
  8.1. block实现
 ```ObjC
 [_touchView touchViewItemDidClickedAtIndex:^(DYFAssistiveTouchView *touchView) {
