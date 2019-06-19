@@ -2,19 +2,19 @@
 
  实现应用内悬浮按钮和辅助工具条，可以增加/修改功能项，通过事件索引，实现各种场景页面的跳转。
 
-## 安装
+### 安装
 
  支持通过 CocoaPods 安装。
 ```pod
  pod 'DYFAssistiveTouchView', '~> 4.2.2'
 ```
 
-## 技术交流群(群号:155353383) 
+### 技术交流群(群号:155353383) 
 
 欢迎加入技术交流群，一起探讨技术问题。<br>
 ![群号:155353383](https://github.com/dgynfi/DYFAssistiveTouchView/raw/master/images/qq155353383.jpg)
 
-## 使用说明
+### 使用说明
 
 1. 实例化
 ```ObjC
@@ -96,8 +96,7 @@ self.touchView.items = @[item, item1, item2];
 ```
 
 8. 响应事件(二选一)
- 
- 8.1. block实现
+ - block实现
 ```ObjC
 __weak typeof(self) weakSelf = self;
 [self.touchView touchViewItemDidClickedAtIndex:^(DYFAssistiveTouchView *touchView) {
@@ -105,12 +104,27 @@ __weak typeof(self) weakSelf = self;
     NSLog(@"Index of item: %zi", index);
     [weakSelf presentAtIndex:index];
 }];
+```
+
+- 代理实现
+```ObjC
+Protocol: <DYFAssistiveTouchViewDelegate>
+
+// 设置代理 
+self.touchView.delegate = self;
+
+// 代理实现
+- (void)touchViewItemDidClickedAtIndex:(DYFAssistiveTouchView *)touchView {
+    NSInteger index = touchView.indexOfItem;
+    NSLog(@"Index of item: %zi", index);
+    [self presentAtIndex:index]; 
 }
 ```
 
 ```ObjC
 - (void)presentAtIndex:(NSInteger)index {
     NSString *url = @"https://support.apple.com/zh-cn";
+    
     if (index == 0) {
         url = @"https://github.com/dgynfi";
     } else if (index == 1) {
@@ -121,19 +135,5 @@ __weak typeof(self) weakSelf = self;
 
     SFSafariViewController *safariVC = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:url]];
     [self presentViewController:safariVC animated:YES completion:NULL];
-}
-```
-
-8.2. 代理实现
-```ObjC
-Protocol: <DYFAssistiveTouchViewDelegate>
-
-Set delegagte: self.touchView.delegate = self;
-
-// 代理实现
-- (void)touchViewItemDidClickedAtIndex:(DYFAssistiveTouchView *)touchView {
-    NSInteger index = touchView.indexOfItem;
-    NSLog(@"Index of item: %zi", index);
-    [self presentAtIndex:index]; 
 }
 ```
