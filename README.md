@@ -16,7 +16,7 @@
 
 ## 使用说明
 
- 1. 实例化
+1. 实例化
 ```ObjC
 - (DYFAssistiveTouchView *)touchView {
     if (!_touchView) {
@@ -27,7 +27,7 @@
 }
 ```
 
- 2. 设置属性
+2. 设置属性
 ```ObjC
 // 设置按钮的各种状态的图像
 UIImage        *leftHidenImage = [UIImage imageNamed:@"atv_hide_left"];
@@ -55,7 +55,7 @@ self.touchView.unitObject.rightTouchImage          = rightUint1Image;
 self.touchView.unitObject.leftItemBackgroundImage  = leftUint2Image;
 self.touchView.unitObject.rightItemBackgroundImage = rightUint2Image;
 
-// 设置item
+// 设置item对象
 UIImage *userImage = [UIImage imageNamed:@"atv_item_user"];
 UIImage *cafeImage = [UIImage imageNamed:@"atv_item_cafe"];
 UIImage   *csImage = [UIImage imageNamed:@"atv_item_cs"];
@@ -70,32 +70,32 @@ item2.image = csImage;
 self.touchView.items = @[item, item1, item2];
 ```
 
- 3. 是否显示
+3. 是否显示
 ```ObjC
 [self.touchView isShowing]
 ```
 
- 4. 显示
+4. 显示
 ```ObjC
 [self.touchView show];
 ```
 
- 5. 隐藏
+5. 隐藏
 ```ObjC
 [self.touchView hide];
 ```
 
- 6. 隐藏一半至屏幕
+6. 隐藏一半至屏幕
 ```ObjC
 [self.touchView setShouldShowHalf:YES];
 ```
 
- 7. 设置初始显示位置
+7. 设置初始显示位置
 ```ObjC
 [self.touchView setTouchViewPlace:DYFTouchViewAtMiddleRight];
 ```
 
- 8. 响应事件(二选一)
+8. 响应事件(二选一)
  
  8.1. block实现
 ```ObjC
@@ -124,14 +124,16 @@ __weak typeof(self) weakSelf = self;
 }
 ```
 
- 8.2. 代理实现
+8.2. 代理实现
 ```ObjC
 Protocol: <DYFAssistiveTouchViewDelegate>
 
 Set delegagte: self.touchView.delegate = self;
 
+// 代理实现
 - (void)touchViewItemDidClickedAtIndex:(DYFAssistiveTouchView *)touchView {
     NSInteger index = touchView.indexOfItem;
     NSLog(@"Index of item: %zi", index);
-    [self presentAtIndex:index];}
+    [self presentAtIndex:index]; 
+}
 ```
