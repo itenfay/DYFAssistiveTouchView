@@ -44,9 +44,9 @@
     if (index == 0) {
         url = @"https://github.com/dgynfi";
     } else if (index == 1) {
-        url = @"https://www.jianshu.com/u/7fc76f1179cc";
-    } else {
         url = @"https://github.com/dgynfi/OpenSource";
+    } else {
+        url = @"https://www.jianshu.com/u/7fc76f1179cc";
     }
     
     SFSafariViewController *safariVC = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:url]];

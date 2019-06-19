@@ -44,7 +44,7 @@ self.touchView.touchObject.rightHighlightedImage = rightHighlightedImage;
 self.touchView.touchObject.leftTranslucentImage  = leftHidenImage;
 self.touchView.touchObject.rightTranslucentImage = rightHidenImage;
 
-// 设置组件
+// 设置组件对象
 UIImage  *leftUint1Image = [UIImage imageNamed:@"atv_unit1_left"];
 UIImage *rightUint1Image = [UIImage imageNamed:@"atv_unit1_right"];
 UIImage  *leftUint2Image = [UIImage imageNamed:@"atv_unit2_left"];
@@ -72,43 +72,66 @@ self.touchView.items = @[item, item1, item2];
 
  3. 是否显示
 ```ObjC
-[_touchView isShowing]
+[self.touchView isShowing]
 ```
 
  4. 显示
 ```ObjC
-[_touchView show];
+[self.touchView show];
 ```
 
  5. 隐藏
 ```ObjC
-[_touchView hide];
+[self.touchView hide];
 ```
 
  6. 隐藏一半至屏幕
 ```ObjC
-[_touchView setShouldShowHalf:YES];
+[self.touchView setShouldShowHalf:YES];
 ```
 
  7. 设置初始显示位置
 ```ObjC
-[_touchView setTouchViewPlace:DYFTouchViewAtMiddleRight];
+[self.touchView setTouchViewPlace:DYFTouchViewAtMiddleRight];
 ```
 
- 8. 响应事件(二选一) <br>
+ 8. 响应事件(二选一)
+ 
  8.1. block实现
 ```ObjC
-[_touchView touchViewItemDidClickedAtIndex:^(DYFAssistiveTouchView *touchView) {
-    NSLog(@"Index of item: %zi", touchView.indexOfItem);
+__weak typeof(self) weakSelf = self;
+[self.touchView touchViewItemDidClickedAtIndex:^(DYFAssistiveTouchView *touchView) {
+    NSInteger index = touchView.indexOfItem;
+    NSLog(@"Index of item: %zi", index);
+    [weakSelf presentAtIndex:index];
 }];
+}
 ```
+
+```ObjC
+- (void)presentAtIndex:(NSInteger)index {
+    NSString *url = @"https://support.apple.com/zh-cn";
+    if (index == 0) {
+        url = @"https://github.com/dgynfi";
+    } else if (index == 1) {
+        url = @"https://github.com/dgynfi/OpenSource";
+    } else {
+        url = @"https://www.jianshu.com/u/7fc76f1179cc";
+    }
+
+    SFSafariViewController *safariVC = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:url]];
+    [self presentViewController:safariVC animated:YES completion:NULL];
+}
+```
+
  8.2. 代理实现
 ```ObjC
 Protocol: <DYFAssistiveTouchViewDelegate>
 
-Set delegagte: _touchView.delegate = self;
+Set delegagte: self.touchView.delegate = self;
 
 - (void)touchViewItemDidClickedAtIndex:(DYFAssistiveTouchView *)touchView {
-    NSLog(@"Index of item: %zi", touchView.indexOfItem);
-}
+    NSInteger index = touchView.indexOfItem;
+    NSLog(@"Index of item: %zi", index);
+    [self presentAtIndex:index];}
 ```
