@@ -21,7 +21,7 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 
-- (IBAction)createAction:(id)sender {
+- (IBAction)configureAction:(id)sender {
     if (!_touchView) {
         [self setImagesForTouchView];
         [self setUnitsForTouchView];
@@ -39,6 +39,16 @@
     }
 }
 
+- (IBAction)showAndHideAction:(id)sender {
+    if (_touchView) {
+        if ([self.touchView isShowing]) {
+            [self.touchView hide];
+        } else {
+            [self.touchView show];
+        }
+    }
+}
+
 - (void)presentAtIndex:(NSInteger)index {
     NSString *url = @"https://support.apple.com/zh-cn";
     if (index == 0) {
@@ -51,16 +61,6 @@
     
     SFSafariViewController *safariVC = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:url]];
     [self presentViewController:safariVC animated:YES completion:NULL];
-}
-
-- (IBAction)showAndHideAction:(id)sender {
-    if (self.touchView) {
-        if ([self.touchView isShowing]) {
-            [self.touchView hide];
-        } else {
-            [self.touchView show];
-        }
-    }
 }
 
 - (void)setImagesForTouchView {

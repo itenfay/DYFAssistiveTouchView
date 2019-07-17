@@ -1,23 +1,35 @@
+[如果你觉得能帮助到你，请给一颗小星星。谢谢！(If you think it can help you, please give it a star. Thanks!)](https://github.com/dgynfi/DYFAssistiveTouchView)
+
+[![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](LICENSE)&nbsp;
+[![CocoaPods](http://img.shields.io/cocoapods/v/DYFAssistiveTouchView.svg?style=flat)](http://cocoapods.org/pods/DYFAssistiveTouchView)&nbsp;
+![CocoaPods](http://img.shields.io/cocoapods/p/DYFAssistiveTouchView.svg?style=flat)&nbsp;
+[![Build Status](https://travis-ci.org/dgynfi/DYFAssistiveTouchView.svg?branch=master)](https://travis-ci.org/dgynfi/DYFAssistiveTouchView)
+
 ## DYFAssistiveTouchView
 
- 实现应用内悬浮按钮和辅助工具条，可以增加/修改功能项，通过事件索引，实现各种场景页面的跳转。
+实现应用内悬浮按钮和辅助工具条，可以增加/修改功能项，通过事件索引，实现各种场景页面的跳转。
 
-### 安装
+## 安装
 
- 支持通过 CocoaPods 安装。
+- 支持通过 CocoaPods 安装。
 ```pod
- pod 'DYFAssistiveTouchView', '~> 4.2.2'
+ pod 'DYFAssistiveTouchView', '~> 4.2.3'
 ```
 
-### 技术交流群(群号:155353383) 
+## 技术交流群(群号:155353383) 
 
-欢迎加入技术交流群，一起探讨技术问题。<br>
-![群号:155353383](https://github.com/dgynfi/DYFAssistiveTouchView/raw/master/images/qq155353383.jpg)
+欢迎加入技术交流群，一起探讨技术问题。<br />
+![](https://github.com/dgynfi/DYFAssistiveTouchView/raw/master/images/qq155353383.jpg)
 
-### 使用说明
+## 效果图
+
+![](https://github.com/dgynfi/DYFAssistiveTouchView/raw/master/images/AssistiveTouchViewPreview.gif)
+
+## 使用说明
 
 1. 实例化
 ```ObjC
+// Lazy load
 - (DYFAssistiveTouchView *)touchView {
     if (!_touchView) {
         _touchView = [[DYFAssistiveTouchView alloc] init];
@@ -96,18 +108,48 @@ self.touchView.items = @[item, item1, item2];
 ```
 
 8. 响应事件(二选一)
+
  - block实现
+ 
 ```ObjC
-__weak typeof(self) weakSelf = self;
-[self.touchView touchViewItemDidClickedAtIndex:^(DYFAssistiveTouchView *touchView) {
-    NSInteger index = touchView.indexOfItem;
-    NSLog(@"Index of item: %zi", index);
-    [weakSelf presentAtIndex:index];
-}];
+- (IBAction)configureAction:(id)sender {
+    if (!_touchView) {
+        [self setImagesForTouchView];
+        [self setUnitsForTouchView];
+        [self setItemsForTouchView];
+
+        [self.touchView setShouldShowHalf:YES];
+        [self.touchView setTouchViewPlace:DYFTouchViewAtMiddleRight];
+
+        __weak typeof(self) weakSelf = self;
+        [self.touchView touchViewItemDidClickedAtIndex:^(DYFAssistiveTouchView *touchView) {
+            NSInteger index = touchView.indexOfItem;
+            NSLog(@"Index of item: %zi", index);
+            [weakSelf presentAtIndex:index];
+        }];
+    }
+}
+
+- (void)presentAtIndex:(NSInteger)index {
+    NSString *url = @"https://support.apple.com/zh-cn";
+
+    if (index == 0) {
+    url = @"https://github.com/dgynfi";
+    } else if (index == 1) {
+    url = @"https://github.com/dgynfi/OpenSource";
+    } else {
+    url = @"https://www.jianshu.com/u/7fc76f1179cc";
+    }
+
+    SFSafariViewController *safariVC = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:url]];
+    [self presentViewController:safariVC animated:YES completion:NULL];
+}
 ```
 
 - 代理实现
+
 ```ObjC
+// 协议
 Protocol: <DYFAssistiveTouchViewDelegate>
 
 // 设置代理 
@@ -119,18 +161,16 @@ self.touchView.delegate = self;
     NSLog(@"Index of item: %zi", index);
     [self presentAtIndex:index]; 
 }
-```
 
-```ObjC
 - (void)presentAtIndex:(NSInteger)index {
     NSString *url = @"https://support.apple.com/zh-cn";
-    
+
     if (index == 0) {
-        url = @"https://github.com/dgynfi";
+    url = @"https://github.com/dgynfi";
     } else if (index == 1) {
-        url = @"https://github.com/dgynfi/OpenSource";
+    url = @"https://github.com/dgynfi/OpenSource";
     } else {
-        url = @"https://www.jianshu.com/u/7fc76f1179cc";
+    url = @"https://www.jianshu.com/u/7fc76f1179cc";
     }
 
     SFSafariViewController *safariVC = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:url]];

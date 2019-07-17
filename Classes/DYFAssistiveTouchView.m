@@ -30,8 +30,8 @@
 
 #define ScreenW          [UIScreen mainScreen].bounds.size.width
 #define ScreenH          [UIScreen mainScreen].bounds.size.height
-#define IsPortrait(ori)  UIInterfaceOrientationIsPortrait(ori)
 #define SharedApp	     [UIApplication sharedApplication]
+#define IsPortrait(ori)  UIInterfaceOrientationIsPortrait(ori)
 
 #pragma mark - category
 
@@ -172,7 +172,7 @@
     [self setShowing:NO];
     [self setMoving:NO];
     [self setUnfolded:NO];
-    [self setDistanceOfItem:10.0f];
+    [self setDistanceOfItem:10.f];
     
     [self layoutAfterDelay];
     
@@ -215,13 +215,13 @@
 }
 
 - (void)layoutAfterDelay {
-    [self performSelector:@selector(layoutViews) withObject:nil afterDelay:1.0];
+    [self performSelector:@selector(layoutViews) withObject:nil afterDelay:1.f];
 }
 
 - (void)layoutViews {
     [self setupImageView];
     [self addToSuperview];
-    [self setAlpha:0.0];
+    [self setAlpha:0.f];
 }
 
 - (void)addToSuperview {
@@ -238,17 +238,17 @@
 - (void)setupImageView {
     _imageView = [[UIImageView alloc] init];
     _imageView.backgroundColor = [UIColor clearColor];
-    _imageView.x = 0;
-    _imageView.y = 0;
+    _imageView.x = 0.f;
+    _imageView.y = 0.f;
     _imageView.size = self.size;
     [self addSubview:_imageView];
 }
 
 - (void)show {
-    [self setAlpha:0.0];
+    [self setAlpha:0.f];
     
-    [UIView animateWithDuration:0.5 animations:^{
-        [self setAlpha:1.0];
+    [UIView animateWithDuration:0.5f animations:^{
+        [self setAlpha:1.f];
     } completion:^(BOOL finished) {
         [self setShowing:YES];
         [self setTouchViewNormalState];
@@ -260,8 +260,8 @@
 }
 
 - (void)hide {
-    [UIView animateWithDuration:0.5 animations:^{
-        [self setAlpha:0.0];
+    [UIView animateWithDuration:0.5f animations:^{
+        [self setAlpha:0.f];
     } completion:^(BOOL finished) {
         [self setShowing:NO];
         [self makeHidden:YES];
@@ -304,7 +304,7 @@
 }
 
 - (void)setTouchViewLocationWithPlace:(DYFTouchViewPlace)place {
-    CGFloat width = 0;
+    CGFloat width  = 0;
     CGFloat height = 0;
     
     if (IsPortrait([self uiOrientation]) || [self iOS8OrNewer]) {
@@ -394,7 +394,7 @@
 
 - (void)makeTouchViewTranslucentAfterDelay {
     if (!self.isUnfolded && !self.isMoving) {
-        [self performSelector:@selector(makeTouchViewTranslucent) withObject:nil afterDelay:8.0];
+        [self performSelector:@selector(makeTouchViewTranslucent) withObject:nil afterDelay:8.f];
     }
 }
 
@@ -406,7 +406,7 @@
     [self setTouchViewTranslucentImage];
     [self sendToFront];
     if (self.shouldShowHalf) {
-        [UIView animateWithDuration:0.5 animations:^{
+        [UIView animateWithDuration:0.5f animations:^{
             [self updateTouchViewLayout:YES];
         }];
     }
@@ -661,7 +661,7 @@
     }
     
     CGFloat left = self.width/2;
-    CGFloat top = self.height/2;
+    CGFloat top  = self.height/2;
     
     if (self.centerX > dw/2) {
         self.centerX = (self.shouldShowHalf && self.shouldIndentHalf)? dw: (dw - left);
@@ -683,7 +683,7 @@
 }
 
 - (void)makeTouchViewLocateScreenEdgeWithAnimation {
-    [UIView animateWithDuration:0.3 animations:^{
+    [UIView animateWithDuration:0.3f animations:^{
         [self updateTouchViewLayout:NO];
     } completion:^(BOOL finished) {
         [self setMoving:NO];
@@ -733,7 +733,7 @@
 - (void)setToolBarAnimationWithType:(NSString *)type subtype:(NSString *)subtype {
     if (self.toolBar) {
         CATransition *animation = [CATransition animation];
-        animation.duration = 0.3;
+        animation.duration = 0.3f;
         animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
         animation.type = type;
         animation.subtype = subtype;
@@ -754,9 +754,9 @@
             [self setTouchViewNormalImage];
             [self makeHidden:NO];
             
-            [self setAlpha:0.0];
-            [UIView animateWithDuration:0.5 delay:0.3 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                [self setAlpha:1.0];
+            [self setAlpha:0.f];
+            [UIView animateWithDuration:0.5f delay:0.3f options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                [self setAlpha:1.f];
             } completion:^(BOOL finished) {
                 [self makeTouchViewTranslucentAfterDelay];
             }];

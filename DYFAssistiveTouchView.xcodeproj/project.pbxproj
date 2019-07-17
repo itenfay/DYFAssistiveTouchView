@@ -159,6 +159,7 @@
 		9668843F1D6C2C94002105A3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = DYF;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = dyf;
 				TargetAttributes = {
