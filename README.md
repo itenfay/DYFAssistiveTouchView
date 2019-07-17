@@ -23,7 +23,7 @@
 
 ## 效果图
 
-<div>
+<div align=left>
 <img src="https://github.com/dgynfi/DYFAssistiveTouchView/raw/master/images/AssistiveTouchViewPreview.gif" width="50%" />
 </div>
 
