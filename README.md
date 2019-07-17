@@ -23,7 +23,9 @@
 
 ## 效果图
 
-![](https://github.com/dgynfi/DYFAssistiveTouchView/raw/master/images/AssistiveTouchViewPreview.gif)
+<div>
+<img src="https://github.com/dgynfi/DYFAssistiveTouchView/raw/master/images/AssistiveTouchViewPreview.gif" width="50%" />
+</div>
 
 ## 使用说明
 
