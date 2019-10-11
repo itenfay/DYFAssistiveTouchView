@@ -3,33 +3,42 @@
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](LICENSE)&nbsp;
 [![CocoaPods](http://img.shields.io/cocoapods/v/DYFAssistiveTouchView.svg?style=flat)](http://cocoapods.org/pods/DYFAssistiveTouchView)&nbsp;
 ![CocoaPods](http://img.shields.io/cocoapods/p/DYFAssistiveTouchView.svg?style=flat)&nbsp;
-[![Build Status](https://travis-ci.org/dgynfi/DYFAssistiveTouchView.svg?branch=master)](https://travis-ci.org/dgynfi/DYFAssistiveTouchView)
 
 ## DYFAssistiveTouchView
 
-实现应用内悬浮按钮和辅助工具条，可以增加/修改功能项，通过事件索引，实现各种场景页面的跳转。
+&emsp; 实现应用内悬浮按钮和辅助工具条，可以增加/修改Item项，通过事件索引，实现各种场景页面的跳转。
 
 ## 安装
 
 - 支持通过 CocoaPods 安装。
+
 ```pod
  pod 'DYFAssistiveTouchView', '~> 4.2.3'
 ```
 
+或者 
+
+```
+# Install lastest version.
+pod 'DYFAssistiveTouchView'
+```
+
 ## 技术交流群(群号:155353383) 
 
-欢迎加入技术交流群，一起探讨技术问题。<br />
-![](https://github.com/dgynfi/DYFAssistiveTouchView/raw/master/images/qq155353383.jpg)
+<div align=left>
+&emsp; <img src="https://github.com/dgynfi/DYFAssistiveTouchView/raw/master/images/qq155353383.jpg" width="20%" />
+</div>
 
 ## 效果图
 
 <div align=left>
-<img src="https://github.com/dgynfi/DYFAssistiveTouchView/raw/master/images/AssistiveTouchViewPreview.gif" width="40%" />
+&emsp; <img src="https://github.com/dgynfi/DYFAssistiveTouchView/raw/master/images/AssistiveTouchViewPreview.gif" width="30%" />
 </div>
 
 ## 使用说明
 
 1. 实例化
+
 ```ObjC
 // Lazy load
 - (DYFAssistiveTouchView *)touchView {
@@ -42,6 +51,7 @@
 ```
 
 2. 设置属性
+
 ```ObjC
 // 设置按钮的各种状态的图像
 UIImage        *leftHidenImage = [UIImage imageNamed:@"atv_hide_left"];
@@ -85,26 +95,31 @@ self.touchView.items = @[item, item1, item2];
 ```
 
 3. 是否显示
+
 ```ObjC
 [self.touchView isShowing]
 ```
 
 4. 显示
+
 ```ObjC
 [self.touchView show];
 ```
 
 5. 隐藏
+
 ```ObjC
 [self.touchView hide];
 ```
 
 6. 隐藏一半至屏幕
+
 ```ObjC
 [self.touchView setShouldShowHalf:YES];
 ```
 
 7. 设置初始显示位置
+
 ```ObjC
 [self.touchView setTouchViewPlace:DYFTouchViewAtMiddleRight];
 ```
@@ -136,11 +151,13 @@ self.touchView.items = @[item, item1, item2];
     NSString *url = @"https://support.apple.com/zh-cn";
 
     if (index == 0) {
-    url = @"https://github.com/dgynfi";
-    } else if (index == 1) {
-    url = @"https://github.com/dgynfi/OpenSource";
-    } else {
-    url = @"https://www.jianshu.com/u/7fc76f1179cc";
+        url = @"https://github.com/dgynfi";
+    } 
+    else if (index == 1) {
+        url = @"https://github.com/dgynfi/OpenSource";
+    } 
+    else {
+        url = @"https://www.jianshu.com/u/7fc76f1179cc";
     }
 
     SFSafariViewController *safariVC = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:url]];
@@ -168,14 +185,21 @@ self.touchView.delegate = self;
     NSString *url = @"https://support.apple.com/zh-cn";
 
     if (index == 0) {
-    url = @"https://github.com/dgynfi";
-    } else if (index == 1) {
-    url = @"https://github.com/dgynfi/OpenSource";
-    } else {
-    url = @"https://www.jianshu.com/u/7fc76f1179cc";
+        url = @"https://github.com/dgynfi";
+    } 
+    else if (index == 1) {
+        url = @"https://github.com/dgynfi/OpenSource";
+    } 
+    else {
+        url = @"https://www.jianshu.com/u/7fc76f1179cc";
     }
 
     SFSafariViewController *safariVC = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:url]];
     [self presentViewController:safariVC animated:YES completion:NULL];
 }
 ```
+
+## Sample Codes
+
+- [Sample Codes Gateway](https://github.com/dgynfi/DYFAssistiveTouchView/blob/master/Basic%20Files/ViewController.m)
+
