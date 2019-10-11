@@ -2,8 +2,8 @@
 Pod::Spec.new do |s|
 
   s.name         = "DYFAssistiveTouchView"
-  s.version      = "4.2.2"
-  s.summary      = "实现应用内悬浮按钮和辅助工具条，可以增加/修改功能项，通过事件索引，实现各种场景页面的跳转。"
+  s.version      = "4.2.3"
+  s.summary      = "应用内悬浮按钮和工具条，可以增加/修改 Item 项，通过事件索引，实现各种场景页面的跳转。"
 
   s.homepage     = "https://github.com/dgynfi/DYFAssistiveTouchView"
 
