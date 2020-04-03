@@ -1,4 +1,4 @@
-[如果你觉得能帮助到你，请给一颗小星星。谢谢！(If you think it can help you, please give it a star. Thanks!)](https://github.com/dgynfi/DYFAssistiveTouchView)
+[如果此项目能帮助到你，就请你给一颗星。谢谢！(If this project can help you, please give it a star. Thanks!)](https://github.com/dgynfi/DYFAssistiveTouchView)
 
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](LICENSE)&nbsp;
 [![CocoaPods](http://img.shields.io/cocoapods/v/DYFAssistiveTouchView.svg?style=flat)](http://cocoapods.org/pods/DYFAssistiveTouchView)&nbsp;
@@ -6,38 +6,36 @@
 
 ## DYFAssistiveTouchView
 
-&emsp; 实现应用内悬浮按钮和辅助工具条，可以增加/修改 Item 项，通过事件索引，实现各种场景页面的跳转。
+实现应用内悬浮按钮和辅助工具条，可以增加/修改 Item 项，通过事件索引，完成各种场景页面的跳转。
 
-## 安装
+## Installation
 
-- 支持通过 CocoaPods 安装。
+Using [CocoaPods](https://cocoapods.org):
 
-```pod
+```
  pod 'DYFAssistiveTouchView', '~> 4.2.3'
 ```
 
-或者 
+Or
 
 ```
 # Install lastest version.
 pod 'DYFAssistiveTouchView'
 ```
 
-## 技术交流群(群号:155353383) 
-
-- 欢迎加入技术交流群 ，一起探讨技术问题。
+## Group (ID:614799921)
 
 <div align=left>
-&emsp; <img src="https://github.com/dgynfi/DYFAssistiveTouchView/raw/master/images/qq155353383.jpg" width="20%" />
+&emsp; <img src="https://github.com/dgynfi/DYFAssistiveTouchView/raw/master/images/g614799921.jpg" width="30%" />
 </div>
 
-## 效果图
+## Priview
 
 <div align=left>
 &emsp; <img src="https://github.com/dgynfi/DYFAssistiveTouchView/raw/master/images/AssistiveTouchViewPreview.gif" width="30%" />
 </div>
 
-## 使用说明
+## Usage
 
 1. 实例化
 
@@ -201,7 +199,6 @@ self.touchView.delegate = self;
 }
 ```
 
-## Sample Codes
+## Code Sample
 
-- [Sample Codes Gateway](https://github.com/dgynfi/DYFAssistiveTouchView/blob/master/Basic%20Files/ViewController.m)
-
+- [Code Sample Portal](https://github.com/dgynfi/DYFAssistiveTouchView/blob/master/Basic%20Files/ViewController.m)
