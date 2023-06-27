@@ -1,4 +1,4 @@
-[如果此项目能帮助到你，就请你给一颗星。谢谢！(If this project can help you, please give it a star. Thanks!)](https://github.com/dgynfi/DYFAssistiveTouchView)
+[如果此项目能帮助到你，就请你给一颗星。谢谢！(If this project can help you, please give it a star. Thanks!)](https://github.com/chenxing640/DYFAssistiveTouchView)
 
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](LICENSE)&nbsp;
 [![CocoaPods](http://img.shields.io/cocoapods/v/DYFAssistiveTouchView.svg?style=flat)](http://cocoapods.org/pods/DYFAssistiveTouchView)&nbsp;
@@ -26,13 +26,13 @@ pod 'DYFAssistiveTouchView'
 ## Group (ID:614799921)
 
 <div align=left>
-&emsp; <img src="https://github.com/dgynfi/DYFAssistiveTouchView/raw/master/images/g614799921.jpg" width="30%" />
+&emsp; <img src="https://github.com/chenxing640/DYFAssistiveTouchView/raw/master/images/g614799921.jpg" width="30%" />
 </div>
 
 ## Priview
 
 <div align=left>
-&emsp; <img src="https://github.com/dgynfi/DYFAssistiveTouchView/raw/master/images/AssistiveTouchViewPreview.gif" width="30%" />
+&emsp; <img src="https://github.com/chenxing640/DYFAssistiveTouchView/raw/master/images/AssistiveTouchViewPreview.gif" width="30%" />
 </div>
 
 ## Usage
@@ -151,10 +151,10 @@ self.touchView.items = @[item, item1, item2];
     NSString *url = @"https://support.apple.com/zh-cn";
 
     if (index == 0) {
-        url = @"https://github.com/dgynfi";
+        url = @"https://github.com/chenxing640";
     } 
     else if (index == 1) {
-        url = @"https://github.com/dgynfi/OpenSource";
+        url = @"https://github.com/chenxing640/OpenSource";
     } 
     else {
         url = @"https://www.jianshu.com/u/7fc76f1179cc";
@@ -185,10 +185,10 @@ self.touchView.delegate = self;
     NSString *url = @"https://support.apple.com/zh-cn";
 
     if (index == 0) {
-        url = @"https://github.com/dgynfi";
+        url = @"https://github.com/chenxing640";
     } 
     else if (index == 1) {
-        url = @"https://github.com/dgynfi/OpenSource";
+        url = @"https://github.com/chenxing640/OpenSource";
     } 
     else {
         url = @"https://www.jianshu.com/u/7fc76f1179cc";
@@ -201,4 +201,4 @@ self.touchView.delegate = self;
 
 ## Code Sample
 
-- [Code Sample Portal](https://github.com/dgynfi/DYFAssistiveTouchView/blob/master/Basic%20Files/ViewController.m)
+- [Code Sample Portal](https://github.com/chenxing640/DYFAssistiveTouchView/blob/master/Basic%20Files/ViewController.m)
