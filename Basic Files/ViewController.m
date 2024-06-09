@@ -1,13 +1,12 @@
 //
 //  ViewController.m
 //
-//  Created by dyf on 14/10/31.
-//  Copyright © 2014年 dyf. All rights reserved.
+//  Created by Tenfay on 14/10/31.
+//  Copyright © 2014年 Tenfay. All rights reserved.
 //
 
 #import "ViewController.h"
 #import "DYFAssistiveTouchView.h"
-
 #import <SafariServices/SafariServices.h>
 
 @interface ViewController ()
@@ -18,14 +17,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (IBAction)configureAction:(id)sender {
     if (!_touchView) {
-        [self setImagesForTouchView];
-        [self setUnitsForTouchView];
-        [self setItemsForTouchView];
+        [self configTouchViewDotImages];
+        [self configTouchViewUnits];
+        [self configTouchViewItems];
         
         [self.touchView setShouldShowHalf:YES];
         [self.touchView setTouchViewPlace:DYFTouchViewAtMiddleRight];
@@ -52,9 +50,9 @@
 - (void)presentAtIndex:(NSInteger)index {
     NSString *url = @"https://support.apple.com/zh-cn";
     if (index == 0) {
-        url = @"https://github.com/dgynfi";
+        url = @"https://github.com/itenfay";
     } else if (index == 1) {
-        url = @"https://github.com/dgynfi/OpenSource";
+        url = @"https://github.com/itenfay/Awesome";
     } else {
         url = @"https://www.jianshu.com/u/7fc76f1179cc";
     }
@@ -63,7 +61,7 @@
     [self presentViewController:safariVC animated:YES completion:NULL];
 }
 
-- (void)setImagesForTouchView {
+- (void)configTouchViewDotImages {
     UIImage        *leftHidenImage = [UIImage imageNamed:@"atv_hide_left"];
     UIImage       *rightHidenImage = leftHidenImage;
     UIImage       *leftNormalImage = [UIImage imageNamed:@"atv_normal_left"];
@@ -79,7 +77,7 @@
     self.touchView.touchObject.rightTranslucentImage = rightHidenImage;
 }
 
-- (void)setUnitsForTouchView {
+- (void)configTouchViewUnits {
     UIImage  *leftUint1Image = [UIImage imageNamed:@"atv_unit1_left"];
     UIImage *rightUint1Image = [UIImage imageNamed:@"atv_unit1_right"];
     UIImage  *leftUint2Image = [UIImage imageNamed:@"atv_unit2_left"];
@@ -91,7 +89,7 @@
     self.touchView.unitObject.rightItemBackgroundImage = rightUint2Image;
 }
 
-- (void)setItemsForTouchView {
+- (void)configTouchViewItems {
     UIImage *userImage = [UIImage imageNamed:@"atv_item_user"];
     UIImage *cafeImage = [UIImage imageNamed:@"atv_item_cafe"];
     UIImage   *csImage = [UIImage imageNamed:@"atv_item_cs"];
@@ -118,7 +116,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

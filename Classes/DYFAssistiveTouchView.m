@@ -1,8 +1,8 @@
 //
 //  DYFAssistiveTouchView.m
 //
-//  Created by dyf on 14/10/31.
-//  Copyright (c) 2014 dyf.
+//  Created by Tenfay on 14/10/31.
+//  Copyright (c) 2014 Tenfay.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -279,26 +279,21 @@
         case DYFTouchViewAtTopLeft:
             [self setTouchViewLocationWithPlace:DYFTouchViewAtTopLeft];
             break;
-            
         case DYFTouchViewAtTopRight:
             [self setTouchViewLocationWithPlace:DYFTouchViewAtTopRight];
             break;
-            
-        default:
-        case DYFTouchViewAtMiddleLeft:
-            [self setTouchViewLocationWithPlace:DYFTouchViewAtMiddleLeft];
-            break;
-            
-        case DYFTouchViewAtMiddleRight:
-            [self setTouchViewLocationWithPlace:DYFTouchViewAtMiddleRight];
-            break;
-            
         case DYFTouchViewAtBottomLeft:
             [self setTouchViewLocationWithPlace:DYFTouchViewAtBottomLeft];
             break;
-            
         case DYFTouchViewAtBottomRight:
             [self setTouchViewLocationWithPlace:DYFTouchViewAtBottomRight];
+            break;
+        case DYFTouchViewAtMiddleRight:
+            [self setTouchViewLocationWithPlace:DYFTouchViewAtMiddleRight];
+            break;
+        default:
+        case DYFTouchViewAtMiddleLeft:
+            [self setTouchViewLocationWithPlace:DYFTouchViewAtMiddleLeft];
             break;
     }
 }

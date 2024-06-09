@@ -1,8 +1,8 @@
 //
 //  DYFAssistiveTouchView.h
 //
-//  Created by dyf on 14/10/31.
-//  Copyright (c) 2014 dyf.
+//  Created by Tenfay on 14/10/31.
+//  Copyright (c) 2014 Tenfay.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal

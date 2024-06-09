@@ -1,8 +1,8 @@
 //
 //  AppDelegate.h
 //
-//  Created by dyf on 14/10/31.
-//  Copyright © 2014年 dyf. All rights reserved.
+//  Created by Tenfay on 14/10/31.
+//  Copyright © 2014年 Tenfay. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
