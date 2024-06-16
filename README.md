@@ -19,7 +19,7 @@ pod 'DYFAssistiveTouchView'
 Or
 
 ```
- pod 'DYFAssistiveTouchView', '~> 4.3.0'
+ pod 'DYFAssistiveTouchView', '~> 4.3.1'
 ```
 
 ## Group (ID:614799921)
