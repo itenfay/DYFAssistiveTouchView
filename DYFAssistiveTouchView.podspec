@@ -1,14 +1,14 @@
 
 Pod::Spec.new do |s|
   s.name         = "DYFAssistiveTouchView"
-  s.version      = "4.3.0"
+  s.version      = "4.3.1"
   s.summary      = "应用内悬浮按钮和工具条，可以增加/修改 Item 项，通过事件索引实现各种场景页面的跳转。"
 
   s.homepage     = "https://github.com/itenfay/DYFAssistiveTouchView"
 
   s.license      = { :type => "MIT", :file => "LICENSE" }
 
-  s.author       = { "Tenfay" => "hansen981@126.com" }
+  s.author       = { "Tenfay" => "itenfay@163.com" }
   # s.social_media_url = "http://twitter.com/Tenfay"
 
   s.platform     = :ios
